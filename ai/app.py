@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from sklearn.tree import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__)
 
@@ -30,7 +30,7 @@ y = [
     "Aventure", "Aventure"
 ]
 
-model = RandomForestClassifier(n_estimators=100)
+model = DecisionTreeClassifier()
 model.fit(X, y)
 
 @app.route("/predict", methods=["POST"])
@@ -41,8 +41,10 @@ def predict():
     preference = 1 if data.get("preference") == "solo" else 2
     plateforme = {"mobile": 1, "PC": 2, "console": 3}.get(data.get("plateforme"), 2)
 
-    prediction = model.predict([[age, heures, preference, plateforme]])
-    return jsonify({"genre_ia": prediction[0]})
+    proba = model.predict([[age, heures, preference, plateforme]])
+    return jsonify({"genre_ia": proba[0],
+                    "confiance": max(proba[0])
+                    })
 
 if __name__ == "__main__":
     app.run(port=5000)
