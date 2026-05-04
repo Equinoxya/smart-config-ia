@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__)
-
 # [age, heures_par_semaine, preference (1=solo, 2=multi), plateforme (1=mobile, 2=PC, 3=console)]
 X = [
     [16, 20, 2, 2],  # FPS
@@ -40,11 +39,9 @@ def predict():
     heures = data.get("heures_par_semaine", 5)
     preference = 1 if data.get("preference") == "solo" else 2
     plateforme = {"mobile": 1, "PC": 2, "console": 3}.get(data.get("plateforme"), 2)
-
     proba = model.predict([[age, heures, preference, plateforme]])
     return jsonify({"genre_ia": proba[0],
                     "confiance": max(proba[0])
                     })
-
 if __name__ == "__main__":
     app.run(port=5000)
