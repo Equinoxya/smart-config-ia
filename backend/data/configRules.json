@@ -1,0 +1,22 @@
+[
+    {
+        "conditions": { "plateforme": "mobile", "preference": "solo" },
+        "result": { "genre": "Casual", "exemple": "Candy Crush, Alto's Odyssey" }
+    },
+    {
+        "conditions": { "plateforme": "PC", "preference": "solo" },
+        "result": { "genre": "RPG", "exemple": "Witcher 3, Elden Ring" }
+    },
+    {
+        "conditions": { "plateforme": "PC", "preference": "multijoueur" },
+        "result": { "genre": "FPS", "exemple": "CS2, Valorant" }
+    },
+    {
+        "conditions": { "plateforme": "console", "preference": "multijoueur" },
+        "result": { "genre": "Sport", "exemple": "FIFA, Rocket League" }
+    },
+    {
+        "conditions": { "plateforme": "console", "preference": "solo" },
+        "result": { "genre": "Aventure", "exemple": "God of War, Zelda" }
+    }
+]

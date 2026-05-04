@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Recommender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <h1>GAME RECOMMENDER</h1>
+    <p class="sub">SYSTÈME DE RECOMMANDATION IA</p>
+
+    <div class="field">
+        <label>PLATEFORME</label>
+        <div class="options" id="plateforme">
+            <div class="opt" data-val="PC">PC</div>
+            <div class="opt" data-val="console">CONSOLE</div>
+            <div class="opt" data-val="mobile">MOBILE</div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label>PRÉFÉRENCE</label>
+        <div class="options" id="preference">
+            <div class="opt" data-val="solo">SOLO</div>
+            <div class="opt" data-val="multijoueur">MULTIJOUEUR</div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label>ÂGE</label>
+        <div class="slider-row">
+            <input type="range" min="10" max="60" value="25" step="1" id="age"
+                oninput="document.getElementById('age-out').textContent=this.value">
+            <span class="val" id="age-out">25</span>
+        </div>
+    </div>
+
+    <div class="field">
+        <label>HEURES PAR SEMAINE</label>
+        <div class="slider-row">
+            <input type="range" min="1" max="60" value="10" step="1" id="heures"
+                oninput="document.getElementById('heures-out').textContent=this.value">
+            <span class="val" id="heures-out">10</span>
+        </div>
+    </div>
+
+    <button class="btn" onclick="recommend()">ANALYSER MON PROFIL ↗</button>
+    <p class="loading" id="loading">ANALYSE EN COURS...</p>
+    <p class="err" id="err">Sélectionne une plateforme et une préférence.</p>
+
+    <div class="result" id="result">
+        <p class="genre" id="genre-out"></p>
+        <p class="exemple" id="exemple-out"></p>
+        <div class="tags">
+            <span class="tag tag-rules" id="tag-rules"></span>
+            <span class="tag tag-ia" id="tag-ia"></span>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
