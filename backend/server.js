@@ -40,7 +40,7 @@ app.post("/recommend", async (req, res) => {
     const config = findConfig(input);
 
     // 2. Prédiction IA
-    const aiResponse = await fetch("http://localhost:5000/predict", {
+    const aiResponse = await fetch("https://gamerecommender-py.onrender.com/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

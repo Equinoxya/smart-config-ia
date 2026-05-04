@@ -25,7 +25,7 @@ async function recommend() {
     loading.classList.add('show');
 
     try {
-        const res = await fetch('http://localhost:3000/recommend', {
+        const res = await fetch("https://gamerecommender-wqz2.onrender.com/recommend", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ plateforme, preference, age, heures_par_semaine: heures })
